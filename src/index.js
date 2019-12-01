@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+import './assets/css/bootstrap.min.css';
+import './assets/css/animate.css';
+import './assets/css/all.css';
+import './assets/css/themify-icons.css';
+import './assets/css/style.css';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
