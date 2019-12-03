@@ -62,15 +62,15 @@ class Home extends Component {
                     </div>
                   </div>
                   {products.slice(0, productsCount).map((product) => (
-                      <LazyLoad
-                        key={product.id}
-                        offset={1024}
-                        placeholder={<div className="col-lg-4 col-sm-6" style={{ height: 385 }} />}
-                        unmountIfInvisible
-                      >
-                        <ProductItem product={product} />
-                      </LazyLoad>
-                    ))}
+                    <LazyLoad
+                      key={product.id}
+                      offset={1024}
+                      placeholder={<div className="col-lg-4 col-sm-6" style={{ height: 385 }} />}
+                      unmountIfInvisible
+                    >
+                      <ProductItem product={product} />
+                    </LazyLoad>
+                  ))}
                   {productsCount < products.length ? (
                     <div className="col-lg-12 text-center">
                       <button onClick={this.showMore} className="btn_2">More Items</button>
