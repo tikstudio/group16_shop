@@ -1,0 +1,54 @@
+.nav-container{
+    width: 980px;
+    margin: 0 auto;
+}
+.nav-container p{
+    font-size: 12px;
+}
+.nav-block{
+    display: flex;
+    margin-bottom: 50px;
+}
+.nav__link{
+    border: 1px solid #c5c5c5;
+    padding: 10px 15px;
+    color: #000;
+    margin: 10px;
+    font-size: 10px;
+    border-radius: 50px;
+    transition: 0.5s;
+}
+.nav__link:hover{
+    transition: 0.5s;
+    background-color:  #2f7dfc ;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

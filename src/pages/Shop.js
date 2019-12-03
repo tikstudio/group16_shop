@@ -7,7 +7,7 @@ import products from '../data/products.json';
 import LeftArea from "../components/LeftArea";
 import BreadCrumb from "../components/BreadCrumb";
 import LazyLoad from 'react-lazyload';
-
+import ModalShop from "./ModalShop";
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -15,20 +15,16 @@ class Home extends Component {
       productsCount: 3,
     }
   }
-
   showMore = () => {
     const { productsCount } = this.state;
     this.setState({ productsCount: productsCount + 3 })
   }
-
   render() {
     const { productsCount } = this.state;
     return (
       <>
         <Header />
-
         <BreadCrumb />
-
         <section className="cat_product_area section_padding border_top">
           <div className="container">
             <div className="row">

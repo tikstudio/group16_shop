@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 
 class ProductItem extends Component {
   render() {
-    const { product: { title, price, images } } = this.props
+    const { product: { title, price, images, id } } = this.props;
     return (
       <div className="col-lg-4 col-sm-6">
         <div className="single_category_product">
           <div className="single_category_img">
-            <img src={images[0]} alt={title} />
+            <Link to={`/shop/${id}`}> <img src={images[0]} alt={title} /></Link>
+
             <div className="category_social_icon">
               <ul>
                 <li>
@@ -27,7 +28,7 @@ class ProductItem extends Component {
               <Link to="single-product.html">
                 <h5>{title}</h5>
               </Link>
-              <p>{price}0</p>
+              <p>{price}</p>
             </div>
           </div>
         </div>

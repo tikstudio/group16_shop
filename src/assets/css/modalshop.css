@@ -1,0 +1,108 @@
+.content{
+    display: flex;
+    background-color: #F5F5F5;
+    margin-top: 80px;
+    justify-content: space-around;
+}
+.article{
+    width: 36%;
+}
+.car{
+    width: 36%;
+}
+.carousel-slider{
+    height: 450px;
+}
+.desc{
+    color: #717171;
+    font-size: 14px;
+}
+.add_to_cart{
+    display: flex;
+    align-items: flex-end;
+}
+.btn_33 {
+    display: inline-block;
+    padding: 9px 25px;
+    border-radius: 50px;
+    background-color: #2f7dfc;
+    border: 1px solid #f4f4f4;
+    font-size: 11px;
+    color: #fff;
+    text-transform: uppercase;
+    transition: 0.5s;
+    margin-top: 25px;
+}
+.btn_33:hover{
+    color: #2f7dfc;
+    background-color: #fff;
+    box-shadow: 0 5px 17px -5px #0b0b0b5c;
+    transition: 0.5s;
+}
+.like_us{
+    border: 1px solid transparent;
+    color : #717171;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-left: 25px;
+    box-shadow: 0 5px 17px -5px #0b0b0b5c;
+    transition: 0.5s;
+}
+.like_us:hover{
+    transition: 0.5s;
+   background-color: #2f7dfc ;
+    color: #fff;
+}
+.input-number{
+    width: 60px;
+    display: inline-block;
+    border: 1px solid  #0b0b0b5c;
+    text-align: center;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+.number-decrement, .number-increment{
+    font-size: 20px;
+    color: #0b0b0b5c;
+    margin: 5px;
+}
+
+
+.container-item{
+    margin: 100px auto ;
+    width: 980px;
+}
+.container-item h2{
+    font-size: 36px;
+    color: #1a1a1a;
+    line-height: 27px;
+    font-weight: 700;
+    margin:0 0 40px 27px;
+
+}
+.container-item .images{
+    display: flex;
+    justify-content: space-evenly;
+}
+.images_item{
+    text-align: center;
+}
+.container-item img{
+    width: 210px;
+}
+
+.row-block{
+    max-width: 100%;
+    overflow: hidden;
+}
+.instagram_photo_iner{
+    display: flex;
+    justify-content: space-between;
+}
+.instagram_photo_iner img{
+    padding: 5px;
+}
