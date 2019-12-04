@@ -21,20 +21,19 @@ class InputRangeComponent extends Component {
                 price.push(product['price'].substr(1))
             ))
         }
-        this.setState({price})
+        this.setState({price});
         return price || {}
     };
-    getFilters = (val) => {
-        let filteredPrice = [];
-        const {price, value} = this.state
-        this.setState({value: val})
-        filteredPrice.push(_.filter(price, p => _.inRange(p, value['min'], value['max'])))
-        return filteredPrice
-    }
+
+    getFilters = (value) => {
+        const {price} = this.state;
+        this.setState({value});
+        EventEmitter.emit('priceChange', {value});
+    };
     render() {
-        const {price, value} = this.state
-        const min = parseInt(_.min(price))
-        const max = parseInt(_.max(price))
+        const {price, value} = this.state;
+        const min = parseInt(_.min(price));
+        const max = parseInt(_.max(price));
         return (
             <div>
 

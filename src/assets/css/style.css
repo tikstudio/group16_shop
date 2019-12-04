@@ -19,7 +19,6 @@ body {
   padding: 0;
   margin: 0;
   font-size: 14px;
-  background-color: #f4f4f4;
 }
 
 /* line 12, /Applications/MAMP/htdocs/palash/cl/august 2019/202. Shop/202 shop html/sass/_common.scss */
@@ -8286,3 +8285,11 @@ h6 {
 }
 
 /*# sourceMappingURL=../css/style.map */
+.input-range__label--max,
+.input-range__label--min
+{
+  display: none;
+}
+.input-range{
+  height: 55px;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import InputRangeComponent from "./InputRangeComponent";
 
 class LeftArea extends Component {
   render() {
@@ -113,7 +114,7 @@ class LeftArea extends Component {
           </div>
           <div className="widgets_inner">
             <div className="range_item">
-              <input type="text" className="js-range-slider" />
+                <InputRangeComponent/>
               <div className="d-flex align-items-center">
                 <div className="price_text">
                   <p>Price :</p>

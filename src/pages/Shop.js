@@ -8,19 +8,35 @@ import LeftArea from "../components/LeftArea";
 import BreadCrumb from "../components/BreadCrumb";
 import LazyLoad from 'react-lazyload';
 import ModalShop from "./ModalShop";
+import EventEmitter from '../helper/EventEmitter'
+import _ from "lodash"
+
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       productsCount: 3,
+      price:null
     }
   }
   showMore = () => {
     const { productsCount } = this.state;
     this.setState({ productsCount: productsCount + 3 })
   }
+  componentDidMount(){
+    EventEmitter.on('priceChange',this.handlePriceChange)
+  }
+    handlePriceChange = (data) => {
+        const {price}  = this.state
+        this.setState({price:data});
+    };
   render() {
-    const { productsCount } = this.state;
+    const { productsCount,price } = this.state;
+    let productsFiltered=products;
+      if (price) {
+          const filteredPrice=price['value'];
+          productsFiltered = _.filter(productsFiltered, p => _.inRange(parseInt((p.price).substr(1)), filteredPrice['min'], filteredPrice['max']));
+    }
     return (
       <>
         <Header />
@@ -57,7 +73,7 @@ class Home extends Component {
                       </div>
                     </div>
                   </div>
-                  {products.slice(0, productsCount).map((product) => (
+                  {productsFiltered.slice(0, productsCount).map((product) => (
                       <LazyLoad
                         key={product.id}
                         offset={1024}
