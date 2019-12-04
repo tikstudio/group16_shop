@@ -9,7 +9,7 @@ class BreadCrumb extends Component {
             <div className="col-lg-12">
               <div className="breadcrumb_iner">
                 <div className="breadcrumb_iner_item">
-                  <p>Home / Category</p>
+                  <p>Home / Category / {this.props.data}</p>
                 </div>
               </div>
             </div>

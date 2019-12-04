@@ -7,13 +7,26 @@ import products from '../data/products.json';
 import LeftArea from "../components/LeftArea";
 import BreadCrumb from "../components/BreadCrumb";
 import LazyLoad from 'react-lazyload';
+import ModalShop from "./ModalShop";
+import EventEmitter from "../helpers/EventEmitter";
+import Helmet from "react-helmet";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       productsCount: 3,
+      brandId: null,
     }
+  }
+
+  componentDidMount() {
+    EventEmitter.on('brandChange', this.handleBrandChange);
+  }
+
+  handleBrandChange = (data) => {
+    const { brandId } = data;
+    this.setState({ brandId, productsCount: 3 });
   }
 
   showMore = () => {
@@ -22,13 +35,18 @@ class Home extends Component {
   }
 
   render() {
-    const { productsCount } = this.state;
+    const { productsCount, brandId } = this.state;
+    let productsFiltered = products;
+    if (brandId) {
+      productsFiltered = productsFiltered.filter(p => p.brandId === brandId);
+    }
     return (
       <>
+        <Helmet>
+          <title>Shop</title>
+        </Helmet>
         <Header />
-
         <BreadCrumb />
-
         <section className="cat_product_area section_padding border_top">
           <div className="container">
             <div className="row">
@@ -41,6 +59,7 @@ class Home extends Component {
                     <div className="product_top_bar d-flex justify-content-between align-items-center">
                       <div className="single_product_menu product_bar_item">
                         <h2>Womans (12)</h2>
+                        <div id="header-portal" />
                       </div>
                       <div className="product_top_bar_iner product_bar_item d-flex">
                         <div className="product_bar_single">
@@ -61,7 +80,7 @@ class Home extends Component {
                       </div>
                     </div>
                   </div>
-                  {products.slice(0, productsCount).map((product) => (
+                  {productsFiltered.slice(0, productsCount).map((product) => (
                     <LazyLoad
                       key={product.id}
                       offset={1024}
