@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-
+import Brands from "./Brands";
+import Color from "./Color"
 class LeftArea extends Component {
   render() {
     return (
@@ -58,52 +59,8 @@ class LeftArea extends Component {
             <h3>Product filters</h3>
           </div>
           <div className="widgets_inner">
-            <ul className="list">
-              <p>Brands</p>
-              <li>
-                <input type="radio" aria-label="Radio button for following text input" />
-                <Link to="#">Apple</Link>
-              </li>
-              <li>
-                <input type="radio" aria-label="Radio button for following text input" />
-                <Link to="#">Asus</Link>
-              </li>
-              <li className="active">
-                <input type="radio" aria-label="Radio button for following text input" />
-                <Link to="#">Gionee</Link>
-              </li>
-              <li>
-                <input type="radio" aria-label="Radio button for following text input" />
-                <Link to="#">Micromax</Link>
-              </li>
-              <li>
-                <input type="radio" aria-label="Radio button for following text input" />
-                <Link to="#">Samsung</Link>
-              </li>
-            </ul>
-            <ul className="list">
-              <p>color</p>
-              <li>
-                <input type="radio" aria-label="Radio button for following text input" />
-                <Link to="#">Black</Link>
-              </li>
-              <li>
-                <input type="radio" aria-label="Radio button for following text input" />
-                <Link to="#">Black Leather</Link>
-              </li>
-              <li>
-                <input type="radio" aria-label="Radio button for following text input" />
-                <Link to="#">Black with red</Link>
-              </li>
-              <li>
-                <input type="radio" aria-label="Radio button for following text input" />
-                <Link to="#">Gold</Link>
-              </li>
-              <li>
-                <input type="radio" aria-label="Radio button for following text input" />
-                <Link to="#">Spacegrey</Link>
-              </li>
-            </ul>
+            <Brands />
+            <Color />
           </div>
         </aside>
 

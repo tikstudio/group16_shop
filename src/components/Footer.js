@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import Portal from "./Portal";
+import brandsData from "../data/brands";
 
 class Footer extends Component {
   render() {
     return (
       <footer className="footer_part">
+
         <div className="container">
           <div className="row justify-content-between">
             <div className="col-sm-6 col-lg-2">

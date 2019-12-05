@@ -8,21 +8,55 @@ import LeftArea from "../components/LeftArea";
 import BreadCrumb from "../components/BreadCrumb";
 import LazyLoad from 'react-lazyload';
 import ModalShop from "./ModalShop";
+import EventEmitter from "../helpers/EventEmitter";
+import Helmet from "react-helmet";
+
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       productsCount: 3,
+      brandId: null,
+      colorId : null,
     }
   }
+
+  componentDidMount() {
+    EventEmitter.on('brandChange', this.handleBrandChange);
+    EventEmitter.on('colorChange', this.handleColorChange);
+
+  }
+
+  handleBrandChange = (data) => {
+    const { brandId } = data;
+    this.setState({ brandId, productsCount: 3 });
+  };
+  handleColorChange = (data) => {
+    const { colorId } = data;
+    this.setState({ colorId, productsCount: 3 });
+  };
+
+
+
   showMore = () => {
     const { productsCount } = this.state;
     this.setState({ productsCount: productsCount + 3 })
   }
+
   render() {
-    const { productsCount } = this.state;
+    const { productsCount, brandId, colorId } = this.state;
+    let productsFiltered = products;
+    if (brandId) {
+      productsFiltered = productsFiltered.filter(p => p.brandId === brandId);
+    }
+    if (colorId) {
+      productsFiltered = productsFiltered.filter(p => p.colorId === colorId);
+    }
     return (
       <>
+        <Helmet>
+          <title>Shop</title>
+        </Helmet>
         <Header />
         <BreadCrumb />
         <section className="cat_product_area section_padding border_top">
@@ -37,6 +71,7 @@ class Home extends Component {
                     <div className="product_top_bar d-flex justify-content-between align-items-center">
                       <div className="single_product_menu product_bar_item">
                         <h2>Womans (12)</h2>
+                        <div id="header-portal" />
                       </div>
                       <div className="product_top_bar_iner product_bar_item d-flex">
                         <div className="product_bar_single">
@@ -57,16 +92,16 @@ class Home extends Component {
                       </div>
                     </div>
                   </div>
-                  {products.slice(0, productsCount).map((product) => (
-                      <LazyLoad
-                        key={product.id}
-                        offset={1024}
-                        placeholder={<div className="col-lg-4 col-sm-6" style={{ height: 385 }} />}
-                        unmountIfInvisible
-                      >
-                        <ProductItem product={product} />
-                      </LazyLoad>
-                    ))}
+                  {productsFiltered.slice(0, productsCount).map((product) => (
+                    <LazyLoad
+                      key={product.id}
+                      offset={1024}
+                      placeholder={<div className="col-lg-4 col-sm-6" style={{ height: 385 }} />}
+                      unmountIfInvisible
+                    >
+                      <ProductItem product={product} />
+                    </LazyLoad>
+                  ))}
                   {productsCount < products.length ? (
                     <div className="col-lg-12 text-center">
                       <button onClick={this.showMore} className="btn_2">More Items</button>

@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import DropdownMenu from "./DropdownMenu";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showMenu: -1,
+    }
+  }
+
+  setMenuIndex = (showMenu) => {
+    this.setState({ showMenu })
+  }
+
   render() {
+    const { showMenu } = this.state;
     return (
       <header className="main_menu home_menu">
         <div className="container-fluid">
@@ -22,23 +35,24 @@ class Header extends Component {
                     <li className="nav-item">
                       <Link className="nav-link" href="index.html">Home</Link>
                     </li>
-                    <li className="nav-item dropdown">
-                      <Link className="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
-                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li className="nav-item dropdown"
+                        onMouseLeave={() => this.setMenuIndex(-1)}
+                        onMouseEnter={() => this.setMenuIndex(1)}>
+                       <span className="nav-link dropdown-toggle">
                         Shop
-                      </Link>
-                      <div className="dropdown-menu" aria-labelledby="navbarDropdown_1">
+                      </span>
+                      <DropdownMenu open={showMenu === 1}>
                         <Link className="dropdown-item" href="category.html"> shop category</Link>
                         <Link className="dropdown-item" href="single-product.html">product details</Link>
-
-                      </div>
+                      </DropdownMenu>
                     </li>
                     <li className="nav-item dropdown">
-                      <Link className="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
-                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span className="nav-link dropdown-toggle"
+                            onMouseLeave={() => this.setMenuIndex(-1)}
+                            onMouseEnter={() => this.setMenuIndex(2)}>
                         pages
-                      </Link>
-                      <div className="dropdown-menu" aria-labelledby="navbarDropdown_2">
+                      </span>
+                      <DropdownMenu open={showMenu === 2}>
                         <Link className="dropdown-item" href="login.html">
                           login
 
@@ -48,7 +62,7 @@ class Header extends Component {
                         <Link className="dropdown-item" href="cart.html">shopping cart</Link>
                         <Link className="dropdown-item" href="confirmation.html">confirmation</Link>
                         <Link className="dropdown-item" href="elements.html">elements</Link>
-                      </div>
+                      </DropdownMenu>
                     </li>
 
                     <li className="nav-item dropdown">
@@ -82,17 +96,19 @@ class Header extends Component {
             </div>
           </div>
         </div>
-        {false ? (
-          <div className="search_input" id="search_input_box">
-            <div className="container ">
-              <form className="d-flex justify-content-between search-inner">
-                <input type="text" className="form-control" id="search_input" placeholder="Search Here" />
-                <button type="submit" className="btn"></button>
-                <span className="ti-close" id="close_search" title="Close Search"></span>
-              </form>
+        {
+          false ? (
+            <div className="search_input" id="search_input_box">
+              <div className="container ">
+                <form className="d-flex justify-content-between search-inner">
+                  <input type="text" className="form-control" id="search_input" placeholder="Search Here" />
+                  <button type="submit" className="btn"></button>
+                  <span className="ti-close" id="close_search" title="Close Search"></span>
+                </form>
+              </div>
             </div>
-          </div>
-        ) : null}
+          ) : null
+        }
 
       </header>
     );

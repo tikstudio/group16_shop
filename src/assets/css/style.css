@@ -8286,3 +8286,9 @@ h6 {
 }
 
 /*# sourceMappingURL=../css/style.map */
+
+
+.nav-item .dropdown-menu.open {
+  display: block;
+  transform: scale(1);
+}
