@@ -41,5 +41,4 @@ class Brands extends Component {
         );
     }
 }
-
 export default Brands;
