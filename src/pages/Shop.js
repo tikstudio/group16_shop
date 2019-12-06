@@ -8,10 +8,7 @@ import LeftArea from "../components/LeftArea";
 import BreadCrumb from "../components/BreadCrumb";
 import LazyLoad from 'react-lazyload';
 import ModalShop from "./ModalShop";
-<<<<<<< HEAD
-import EventEmitter from '../helper/EventEmitter'
 import _ from "lodash"
-=======
 import EventEmitter from "../helpers/EventEmitter";
 import Helmet from "react-helmet";
 
@@ -20,13 +17,14 @@ class Home extends Component {
     super(props);
     this.state = {
       productsCount: 3,
-      price:null
+      price:null,
       brandId: null,
     }
   }
 
   componentDidMount() {
     EventEmitter.on('brandChange', this.handleBrandChange);
+      EventEmitter.on('priceChange',this.handlePriceChange)
   }
 
   handleBrandChange = (data) => {
@@ -38,22 +36,19 @@ class Home extends Component {
     const { productsCount } = this.state;
     this.setState({ productsCount: productsCount + 3 })
   }
-  componentDidMount(){
-    EventEmitter.on('priceChange',this.handlePriceChange)
-  }
     handlePriceChange = (data) => {
         const {price}  = this.state
         this.setState({price:data});
     };
   render() {
-    const { productsCount,price } = this.state;
+    const { productsCount,price,brandId } = this.state;
     let productsFiltered=products;
       if (price) {
-          const filteredPrice=price['value'];
-          productsFiltered = _.filter(productsFiltered, p => _.inRange(parseInt((p.price).substr(1)), filteredPrice['min'], filteredPrice['max']));
-  render() {
-    const { productsCount, brandId } = this.state;
-    let productsFiltered = products;
+          const filteredPrice = price['value'];
+          productsFiltered = _.filter(productsFiltered,
+                  p => _.inRange(parseInt((p.price).substr(1)), filteredPrice['min'], filteredPrice['max']));
+
+      }
     if (brandId) {
       productsFiltered = productsFiltered.filter(p => p.brandId === brandId);
     }
@@ -108,14 +103,6 @@ class Home extends Component {
                       </LazyLoad>
                     ))}
 
-                    <LazyLoad
-                      key={product.id}
-                      offset={1024}
-                      placeholder={<div className="col-lg-4 col-sm-6" style={{ height: 385 }} />}
-                      unmountIfInvisible
-                    >
-                      <ProductItem product={product} />
-                    </LazyLoad>
                   ))}
                   {productsCount < products.length ? (
                     <div className="col-lg-12 text-center">
