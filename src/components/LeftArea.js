@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import InputRangeComponent from "./InputRangeComponent";
+import Brands from "./Brands";
 
 class LeftArea extends Component {
   render() {
@@ -59,29 +60,7 @@ class LeftArea extends Component {
             <h3>Product filters</h3>
           </div>
           <div className="widgets_inner">
-            <ul className="list">
-              <p>Brands</p>
-              <li>
-                <input type="radio" aria-label="Radio button for following text input" />
-                <Link to="#">Apple</Link>
-              </li>
-              <li>
-                <input type="radio" aria-label="Radio button for following text input" />
-                <Link to="#">Asus</Link>
-              </li>
-              <li className="active">
-                <input type="radio" aria-label="Radio button for following text input" />
-                <Link to="#">Gionee</Link>
-              </li>
-              <li>
-                <input type="radio" aria-label="Radio button for following text input" />
-                <Link to="#">Micromax</Link>
-              </li>
-              <li>
-                <input type="radio" aria-label="Radio button for following text input" />
-                <Link to="#">Samsung</Link>
-              </li>
-            </ul>
+            <Brands />
             <ul className="list">
               <p>color</p>
               <li>

@@ -8293,3 +8293,8 @@ h6 {
 .input-range{
   height: 55px;
 }
+
+.nav-item .dropdown-menu.open {
+  display: block;
+  transform: scale(1);
+}

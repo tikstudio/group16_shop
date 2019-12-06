@@ -9,6 +9,7 @@
       "/assets/img/category/category_10.png",
       "/assets/img/category/category_7.png"
     ],
+    "brandId": 1,
     "title1" : "Faded SkyBlu Denim Jeans",
     "category" : "Category : Household",
     "availibility" :"Availibility : In Stock",
@@ -24,6 +25,7 @@
       "/assets/img/category/category_3.png",
       "/assets/img/category/category_12.png"
     ],
+    "brandId": 456,
     "title1" : "Faded SkyBlu Denim Jeans",
     "category" : "Category : Household",
     "availibility" :"Availibility : In Stock",
@@ -40,6 +42,7 @@
       "/assets/img/category/category_10.png",
       "/assets/img/category/category_11.png"
     ],
+    "brandId": 4566,
     "title1" : "Faded SkyBlu Denim Jeans",
     "category" : "Category : Household",
     "availibility" :"Availibility : In Stock",
@@ -50,6 +53,7 @@
     "id": 5,
     "title": "Long Sleeve TShirt",
     "price": "$540",
+    "brandId": 4566,
     "images": [
       "/assets/img/category/category_4.png",
       "/assets/img/category/category_2.png",
@@ -66,6 +70,8 @@
     "id": 6,
     "title": "Long Sleeve TShirt",
     "price": "$280",
+    "brandId": 4566,
+
     "images": [
       "/assets/img/category/category_5.png",
       "/assets/img/category/category_6.png",
@@ -82,6 +88,7 @@
     "id": 7,
     "title": "Long Sleeve TShirt",
     "price": "$120",
+    "brandId": 4566,
     "images": [
       "/assets/img/category/category_6.png",
       "/assets/img/category/category_1.png",
@@ -97,6 +104,7 @@
     "id": 8,
     "title": "Long Sleeve TShirt",
     "price": "$750",
+    "brandId": 4566,
     "images": [
       "/assets/img/category/category_7.png",
       "/assets/img/category/category_3.png",
