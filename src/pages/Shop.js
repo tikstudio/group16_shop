@@ -19,17 +19,30 @@ class Home extends Component {
       productsCount: 3,
       price:null,
       brandId: null,
+        categoryId:null,
+        subCategory:null
     }
   }
 
   componentDidMount() {
     EventEmitter.on('brandChange', this.handleBrandChange);
-      EventEmitter.on('priceChange',this.handlePriceChange)
+    EventEmitter.on('priceChange',this.handlePriceChange);
+    EventEmitter.on('categoryChange',this.handleCategoryChange);
+    EventEmitter.on('subCategory',this.handleSubCategory);
   }
 
   handleBrandChange = (data) => {
     const { brandId } = data;
     this.setState({ brandId, productsCount: 3 });
+  }
+
+  handleCategoryChange = (data) => {
+    const { categoryId } = data;
+    this.setState({ categoryId });
+  }
+  handleSubCategory = (data) => {
+    const { subCategory } = data;
+    this.setState({ subCategory });
   }
 
   showMore = () => {
@@ -41,7 +54,7 @@ class Home extends Component {
         this.setState({price:data});
     };
   render() {
-    const { productsCount,price,brandId } = this.state;
+    const { productsCount,price,brandId,categoryId,subCategory} = this.state;
     let productsFiltered=products;
       if (price) {
           const filteredPrice = price['value'];
@@ -51,6 +64,12 @@ class Home extends Component {
       }
     if (brandId) {
       productsFiltered = productsFiltered.filter(p => p.brandId === brandId);
+    }
+    if (categoryId) {
+        productsFiltered = products.filter(p => p.categoryId === categoryId);
+        if(subCategory) {
+            productsFiltered = productsFiltered.filter(c => c.subId === subCategory);
+        }
     }
     return (
       <>
@@ -102,8 +121,6 @@ class Home extends Component {
                         <ProductItem product={product} />
                       </LazyLoad>
                     ))}
-
-                  ))}
                   {productsCount < products.length ? (
                     <div className="col-lg-12 text-center">
                       <button onClick={this.showMore} className="btn_2">More Items</button>

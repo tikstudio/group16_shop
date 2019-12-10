@@ -26,7 +26,6 @@ class InputRangeComponent extends Component {
     };
 
     getFilters = (value) => {
-        const {price} = this.state;
         this.setState({value});
         EventEmitter.emit('priceChange', {value});
     };

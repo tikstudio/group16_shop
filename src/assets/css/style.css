@@ -8298,3 +8298,6 @@ h6 {
   display: block;
   transform: scale(1);
 }
+.hidden{
+  display: none;
+}

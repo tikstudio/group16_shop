@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import InputRangeComponent from "./InputRangeComponent";
 import Brands from "./Brands";
+import Category from "./Category";
 
 class LeftArea extends Component {
   render() {
@@ -12,46 +13,7 @@ class LeftArea extends Component {
             <h3>Browse Categories</h3>
           </div>
           <div className="widgets_inner">
-            <ul className="list">
-              <li>
-                <Link to="#">Fruits and Vegetables</Link>
-              </li>
-              <li className="sub-menu">
-                <Link to="#Electronics" className=" d-flex justify-content-between">
-                  Electronics
-                  <div className="right ti-plus"></div>
-                </Link>
-                <ul>
-                  <li>
-                    <Link to="#Electronics">Home Appliances</Link>
-                  </li>
-                  <li>
-                    <Link to="#Electronics">Smartphones</Link>
-                  </li>
-                  <li>
-                    <Link to="#Electronics">Kitchen Appliances</Link>
-                  </li>
-                  <li>
-                    <Link to="#Electronics">Computer Accessories</Link>
-                  </li>
-                  <li>
-                    <Link to="#Electronics">Meat Alternatives</Link>
-                  </li>
-                  <li>
-                    <Link to="#Electronics">Appliances</Link>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <Link to="#">Cooking</Link>
-              </li>
-              <li>
-                <Link to="#">Beverages</Link>
-              </li>
-              <li>
-                <Link to="#">Home and Cleaning</Link>
-              </li>
-            </ul>
+              <Category/>
           </div>
         </aside>
 

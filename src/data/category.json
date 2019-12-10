@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Fruits and Vegetables",
+    "sub": []
+  },
+  {
+    "id": 2,
+    "title": "Electronics",
+    "sub": [
+      {
+        "id": 1,
+        "title": "Home Appliances"
+      },
+      {
+        "id": 2,
+        "title": "Smartphones"
+      },
+      {
+        "id": 3,
+        "title": "Kitchen Appliances"
+      },
+      {
+        "id": 4,
+        "title": "Computer Accessories"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Cooking",
+    "sub": []
+  },
+  {
+    "id": 6,
+    "title": "Beverages",
+    "sub": []
+  },
+  {
+    "id": 8,
+    "title": "Home and Cleaning",
+    "sub": []
+  }
+]
